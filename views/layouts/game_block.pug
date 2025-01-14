@@ -1,7 +1,7 @@
 .game
-    img(alt='' src='img/res4.jpg')
+    img(alt='' src=`/img/${game.img}.jpg`)
     .game-text
-        h3 Dying Light
+        h3 #{game.name}
         div
             p Europa
-            p 15 &euro;
+            p #{game.price} &euro;

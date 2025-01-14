@@ -1,7 +1,7 @@
 import Sequalize from 'sequelize';
 
-const db = Sequalize('aleskeys','Ale','systerk1',{
-    host: '127.0.0.1',
+const db = new Sequalize('aleskeys','Ale','systerk1',{
+    host:'localhost',
     port: '3306',
     dialect: 'mysql',
     define:{
@@ -14,4 +14,19 @@ const db = Sequalize('aleskeys','Ale','systerk1',{
         idle: 1000,
     },
     operatorAliases: false
-});
+})
+
+const testConnection = async() => {
+    try{
+        await db.authenticate();
+        console.log("DB conectada correctamente")
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+export{
+    db,
+    testConnection
+}

@@ -1,7 +1,9 @@
 import express from 'express'
 import router from "./routes/index.js"
-
+import { testConnection } from './config/db.js';
 const app = express();
+
+testConnection();
 
 const port = process.env.PORT || 4000;
 

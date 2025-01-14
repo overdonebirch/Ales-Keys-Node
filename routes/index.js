@@ -1,14 +1,10 @@
 import express from 'express'
 import { Router  } from 'express'
-
+import { todosLosJuegos } from '../controllers/gameController.js';
 const router = express.Router();
 
-router.get("/",(req,res) => {
-    res.render('index')  
-})
+router.get("/",todosLosJuegos)
 
-router.get("/prueba",(req,res) => {
-    res.send("Pagina de prueba")  
-})
+router.get("/json",todosLosJuegos)
 
 export default router;

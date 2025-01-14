@@ -4,35 +4,6 @@ block contenido
         section.top-games
             h2 Juegos destacados de PC
             .games-list
-                .game
-                    img(alt='' src='img/dyin-light2.jpg')
-                    .game-text
-                        h3 Dying Light
-                        div
-                            p Europa
-                            p 15 &euro;
-                // Producto
-                .game
-                    img(alt='' src='img/dyin-light2.jpg')
-                    .game-text
-                        h3 Dying Light
-                        div
-                            p Europa
-                            p 15 &euro;
-                // Producto
-                .game
-                    img(alt='' src='img/days-gone2.jpg')
-                    .game-text
-                        h3 Dying Light
-                        div
-                            p Europa
-                            p 15 &euro;
-                // Producto
-                .game
-                    img(alt='' src='img/res4.jpg')
-                    .game-text
-                        h3 Dying Light
-                        div
-                            p Europa
-                            p 15 &euro;
-                // Producto
+                if(allGames)
+                    each game in allGames
+                        include ./layouts/game_block
