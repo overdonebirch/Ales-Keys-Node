@@ -1,0 +1,134 @@
+/** Globales **/
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1REM = 10px */
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+*{
+    color: white;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+/** Utilidades **/
+
+
+/** Header y navegacion **/
+
+h1{
+    color: #f7e9e9;
+    padding-bottom: 25px;
+    font-size: 2.5rem;
+}
+h1 span{
+    color: #ab9fe2;
+}
+
+.container{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.games-list{
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   gap: 2rem;
+}
+.nav-bar{
+    height: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #262833;
+}
+
+.nav-bar a{
+    color: white;
+    text-decoration: none;
+}
+
+
+
+/*** Body ***/
+body{
+    font-size: 1.6rem;
+    background-color: #1B1C24;
+}
+
+.game{
+    /* border: 0.01px solid;
+    border-radius: 5px;
+    border-bottom-right-radius: 50px;
+    border-color: #31313100;
+     */
+    transition: background-color .3s ease-out;
+}
+
+.game:hover{
+    background-color: #1B1C24 ;
+}
+
+.game img{
+    transition: transform .3s ease-out;
+}
+.game img:hover{
+    transform: scale(1.01);
+}
+
+
+
+.game-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background : linear-gradient(90deg,#1d1e24, #2e2e36);
+    border: 0.01px solid;
+    border-radius: 5px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-color: #31313100;
+    
+}
+
+.top-games,.trending{
+    padding-top: 5rem;
+}
+
+
+/*** Trending ***/
+
+.trending{
+    padding-top: 5rem;
+}
+
+.trending-list{
+    /* display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.trending-list .game{
+    flex-basis: 23%;
+    margin: 1rem;
+}
+
+
+
+.trending-list img{
+    height: 14rem;
+    width: 30rem;
+}
+
