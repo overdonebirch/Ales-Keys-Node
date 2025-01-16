@@ -1,5 +1,12 @@
 extends ./layouts/plantilla
 block contenido 
+    .container.filtros
+        select#systems-select
+            option(value='' disabled='' selected='') Sistemas
+        select#platforms-select
+            option(value='' disabled='' selected='') Plataformas
+        select#genres-select
+            option(value='' disabled='' selected='') Generos
     .container
         section.top-games
             h2 Juegos destacados de PC
@@ -7,3 +14,4 @@ block contenido
                 if(allGames)
                     each game in allGames
                         include ./layouts/game_block
+    

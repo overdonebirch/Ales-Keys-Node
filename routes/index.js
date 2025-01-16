@@ -1,10 +1,11 @@
 import express from 'express'
 import { Router  } from 'express'
-import { todosLosJuegos } from '../controllers/gameController.js';
+import { paginaInicio, todosLosSistemas,todasLasPlataformas } from '../controllers/gameController.js';
 const router = express.Router();
 
-router.get("/",todosLosJuegos)
+router.get("/",paginaInicio)
+router.get("/todosLosSistemas",todosLosSistemas)
+router.get("/todasLasPlataformas",todasLasPlataformas)
 
-router.get("/json",todosLosJuegos)
 
 export default router;
