@@ -1,5 +1,6 @@
 import express from 'express'
 import router from "./routes/index.js"
+import { db } from './config/db.js'; import { Game } from './models/Game.js'; import { System } from './models/System.js'; import { GameSystem } from './models/GameSystem.js'; import './models/associations.js'
 const app = express();
 
 
