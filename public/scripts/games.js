@@ -1,11 +1,15 @@
 const systemsSelect = document.getElementById("systems-select");
 const platformsSelect = document.getElementById("platforms-select");
+const genresSelect = document.getElementById("genres-select");
+
 const gameContainer = document.getElementById("all-games");
 const templateScript = document.getElementById("game-template");
 
 const indexURL = "/paginaInicio"
 const systemsURL = "/todosLosSistemas";
 const platformsURL = "/todasLasPlataformas";
+const genresURL = "/todosLosGeneros";
+
 const gamesSystemsURL = "/sistemas"
 const gamesFilteredURL = "/juegosFiltrados"
 
@@ -22,16 +26,22 @@ const initializeFilters = async () => {
     let promiseRoutes = [];
     promiseRoutes.push(getData(systemsURL));
     promiseRoutes.push(getData(platformsURL));
+    promiseRoutes.push(getData(genresURL));
 
     try {
         let filtersPromises = await Promise.all(promiseRoutes);
         const systems = filtersPromises[0];
         const platforms = filtersPromises[1];
+        const genres = filtersPromises[2];
+        console.log(genres);
         if (systems) {
             fillSelect(systemsSelect, systems);
         }
         if (platforms) {
             fillSelect(platformsSelect, platforms);
+        }
+        if (genres) {
+            fillSelect(genresSelect, genres);
         }
     } catch (error) {
         console.error('Error initializing filters:', error);
@@ -39,19 +49,35 @@ const initializeFilters = async () => {
 }
 
 const eventListeners = () => {
-    systemsSelect.addEventListener("change", filterBySystems);
+    systemsSelect.addEventListener("change", filterGames);
+    genresSelect.addEventListener("change", filterGames);
 }
 
-const filterBySystems = async (e) => {
-    try {
-        const result = await fetch(`${gamesFilteredURL}?system_id=${e.target.value}`);
-        if (!result.ok) {
+const filterValues = {
+    system_id : '',
+    genre_id : ''
+}
+
+const filterGames = async (e) => {
+    if(e.target === systemsSelect){
+        filterValues.system_id = e.target.value;
+    }
+    else if(e.target === genresSelect){
+        filterValues.genre_id = e.target.value;
+    }
+
+    const queryParams = new URLSearchParams(filterValues).toString();
+
+    try{
+        const result = await fetch(`${gamesFilteredURL}?${queryParams}`);
+        if(!result){
             throw new Error(`HTTP error! Status: ${result.status}`);
         }
         const games = await result.json();
         updateShownGames(games);
-    } catch (error) {
-        console.error('Error fetching filtered games:', error);
+    }
+    catch(error) {
+        console.log(error)
     }
 }
 
@@ -87,7 +113,6 @@ const updateShownGames = (games) => {
     games.forEach(game => {
         const newGameBlock = replaceGameTemplate(game);
         gameContainer.appendChild(newGameBlock);
-        console.log(newGameBlock);
     })
 }
 

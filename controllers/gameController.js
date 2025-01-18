@@ -1,5 +1,6 @@
 import { Game } from "../models/Game.js";
 import { System } from "../models/System.js";
+import { Genre } from "../models/Genre.js";
 import { Platform } from "../models/Platform.js";
 import { GameSystem } from "../models/GameSystem.js";
 import { where } from "sequelize";
@@ -37,6 +38,16 @@ const todasLasPlataformas = async (req,res) => {
     }
 }
 
+const todosLosGeneros = async (req,res) => {
+    try{
+        const generos = await Genre.findAll();
+        res.json(generos) ;
+    }
+    catch(error){
+        return error
+    }
+}
+
 const sistemas = async (req,res) => {
 
     try{
@@ -48,27 +59,43 @@ const sistemas = async (req,res) => {
     }
 }
 
-const juegosFiltrados = async(req,res) => {
-    const {system_id} = req.query;
-    console.log(system_id); 
-    try{
-        let juegos = await Game.findAll({
-            include:{
-                model:System,
-                where: {id : system_id}
-            }
+const juegosFiltrados = async (req, res) => {
+    const { system_id, genre_id } = req.query;
+
+    const includeOptions = [];
+
+    if (system_id) {
+        includeOptions.push({
+            model: System,
+            where: { id: system_id }
         });
-        if(!juegos){
-            juegos = await Game.findAll();
-        }
-       
-        res.json(juegos) ;
     }
-    catch(error){
-        return error
+
+    if (genre_id) {
+        includeOptions.push({
+            model: Genre,
+            where: { id: genre_id }
+        });
     }
+
+    try {
+        let juegos = await Game.findAll({
+            include: includeOptions
+        });
+        res.json(juegos);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Error al obtener los juegos filtrados' });
+    }
+};
+
+
+
+export {
+paginaInicio,
+todosLosSistemas,
+todasLasPlataformas, 
+todosLosGeneros,
+sistemas,
+juegosFiltrados
 }
-
-
-
-export {paginaInicio,todosLosSistemas,todasLasPlataformas, sistemas, juegosFiltrados}
