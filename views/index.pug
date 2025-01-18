@@ -1,4 +1,5 @@
 extends ./layouts/plantilla
+
 block contenido 
     .container.filtros
         select#systems-select
@@ -9,9 +10,16 @@ block contenido
             option(value='' disabled='' selected='') Generos
     .container
         section.top-games
-            h2 Juegos destacados de PC
-            .games-list
+            h2 Todos Los Juegos
+            .games-list#all-games
                 if(allGames)
                     each game in allGames
                         include ./layouts/game_block
-    
+            //- Plantilla JavaScript para juegos
+            script(type='text/template' id='game-template')
+                .game
+                    img(alt='' src='/img/{{img}}')
+                    .game-text
+                        h3 {{name}}
+                        div
+                            p {{price}} &euro;
