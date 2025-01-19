@@ -17,6 +17,9 @@ html {
     font-style: normal;
 }
 
+footer{
+    background-color: #262833;
+}
 img{
     max-width: 100%;
     display: block;
@@ -28,6 +31,9 @@ select option{
     background-color: #ab9fe2;
 }
 
+.hidden{
+    display: none;
+}
 /** Utilidades **/
 
 
@@ -101,16 +107,15 @@ body{
     transition: background-color .3s ease-out;
 }
 
-.game:hover{
-    background-color: #1B1C24 ;
-}
 
-.game img{
+.game{
     transition: transform .3s ease-out;
 }
-.game img:hover{
+.game:hover{
     transform: scale(1.01);
+    cursor: pointer;
 }
+
 
 
 
@@ -124,7 +129,45 @@ body{
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
     border-color: #31313100;
-    
+}
+/* 
+.game-text button {
+    color: black;
+    background-color: #ab9fe2;
+    height: 50px;
+} */
+
+button{
+    border-radius: 5px;
+    background-color: #ab9fe2;
+    color: #1B1C24;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #cac2ec;
+}
+
+.game-display{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.game-display div{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33%;
+}
+.game-display div button{
+    margin-top: 5px;
+}
+
+.game-display img{
+    transition: transform .3s ease-out;
+}
+.game-display img:hover{
+    transform: scale(1.01);
 }
 
 .top-games,.trending{

@@ -17,7 +17,7 @@ block contenido
                         include ./layouts/game_block
             //- Plantilla JavaScript para juegos
             script(type='text/template' id='game-template')
-                .game
+                a.game(href=`/paginaJuego?game_id={{id}}`)
                     img(alt='' src='/img/{{img}}')
                     .game-text
                         h3 {{name}}

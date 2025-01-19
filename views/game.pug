@@ -1,0 +1,13 @@
+extends ./layouts/plantilla
+block contenido 
+    .container.game-display
+        aside
+            img(src=`/img/${game.img}`)
+        div
+            h1 #{game.name}
+            p #{game.price} &euro;
+            p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem nulla ad, excepturi sapiente dolor quam perspiciatis quibusdam voluptate hic sint id, necessitatibus sequi nostrum quidem sed ipsa deserunt animi?
+            p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem nulla ad, excepturi sapiente dolor quam perspiciatis quibusdam voluptate hic sint id, necessitatibus sequi nostrum quidem sed ipsa deserunt animi?
+            button Add to cart

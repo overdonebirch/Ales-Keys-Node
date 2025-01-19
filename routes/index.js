@@ -1,7 +1,8 @@
 import express from 'express'
 import { Router  } from 'express'
 import { 
-paginaInicio, 
+paginaInicio,
+paginaJuego,
 todosLosSistemas,
 todasLasPlataformas,
 todosLosGeneros,
@@ -16,6 +17,7 @@ router.get("/todasLasPlataformas",todasLasPlataformas)
 router.get("/todosLosGeneros",todosLosGeneros)
 router.get("/sistemas",sistemas)
 router.get("/juegosFiltrados",juegosFiltrados)
+router.get("/paginaJuego",paginaJuego)
 
 
 export default router;

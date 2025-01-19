@@ -6,7 +6,6 @@ import { GameSystem } from "../models/GameSystem.js";
 import { where } from "sequelize";
 
 const paginaInicio = async (req,res) => {
-
     try{
         let allGames = await Game.findAll();
         res.render('index',{
@@ -18,6 +17,15 @@ const paginaInicio = async (req,res) => {
     }
 }
 
+const paginaJuego = async (req,res) => {
+    const {game_id} = req.query;
+    const game = await Game.findOne({where : {id:game_id}})
+    console.log(game.dataValues);
+    
+    res.render('game',{
+        game
+    });
+}
 
 const todosLosSistemas = async (req,res) => {
     try{
@@ -93,6 +101,7 @@ const juegosFiltrados = async (req, res) => {
 
 export {
 paginaInicio,
+paginaJuego,
 todosLosSistemas,
 todasLasPlataformas, 
 todosLosGeneros,
