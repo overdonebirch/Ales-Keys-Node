@@ -120,7 +120,7 @@ const updateShownGames = (games) => {
 
 const replaceGameTemplate = (game) => {
     const blockHtml = templateScript.innerHTML;
-    const newHtml = blockHtml.replace('{{img}}',game.img)
+    const newHtml = blockHtml.replace('{{id}}',game.id).replace('{{img}}',game.img)
                     .replace('{{name}}',game.name)
                     .replace('{{price}}',game.price);
 
