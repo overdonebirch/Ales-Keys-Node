@@ -2,12 +2,20 @@ extends ./layouts/plantilla
 block contenido 
     .container.game-display
         aside
-            img(src=`/img/${game.img}`)
+            img(src=`img/${game.img}`)
         div
-            h1 #{game.name}
-            p #{game.price} &euro;
+            h2 #{game.name}
+            p.game-price #{game.price} &euro;
             p
             | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem nulla ad, excepturi sapiente dolor quam perspiciatis quibusdam voluptate hic sint id, necessitatibus sequi nostrum quidem sed ipsa deserunt animi?
             p
             | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem nulla ad, excepturi sapiente dolor quam perspiciatis quibusdam voluptate hic sint id, necessitatibus sequi nostrum quidem sed ipsa deserunt animi?
             button Add to cart
+    .about-game
+        h4.about-game_start Sobre este juego
+        #bg-img(style=`background-image:url("../img/${game.bgImage}");`)
+        .container.about-game_description
+            h3 Lucha Contra Los Zombies
+            h4 Ambientado en una ciudad postapocaliptica
+            .about-game_description--text
+                p #{game.descriptionText}

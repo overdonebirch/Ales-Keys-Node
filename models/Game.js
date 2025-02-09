@@ -13,6 +13,12 @@ export const Game = db.define('Game', {
     },
     img: {
         type: Sequelize.STRING
+    },
+    bgImage: {
+        type: Sequelize.STRING
+    },
+    descriptionText: {
+        type: Sequelize.STRING
     }
 }, {
     tableName: 'games'
