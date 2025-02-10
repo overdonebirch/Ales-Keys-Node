@@ -26,7 +26,7 @@ router.get("/paginaJuego",paginaJuego)
 
 router.get("/carrito",verCarrito)
 router.post("/anadirJuegoCarrito",añadirJuegoCarrito)
-router.destroy("/eliminarJuegoCarrito",eliminarJuegoCarrito)
+router.delete("/eliminarJuegoCarrito/:id",eliminarJuegoCarrito)
 
 
 export default router;

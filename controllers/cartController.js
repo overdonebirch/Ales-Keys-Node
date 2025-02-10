@@ -29,9 +29,22 @@ const añadirJuegoCarrito = async (req,res) => {
 }
 
 const eliminarJuegoCarrito = async (req,res) => {
-    
+    const gameId = req.params.id;
+    try{
+        await Cart.destroy({
+            where:{
+                'idGame' : gameId
+            }
+        })
+        console.log("Se eliminó el juego del carrito correctamente")
+        return res.json({ message: "Juego eliminado del carrito" });
+    }
+    catch(error){
+        console.log(error)
+    }
 }
 
 
 
-export {verCarrito,añadirJuegoCarrito}
+
+export {verCarrito,añadirJuegoCarrito,eliminarJuegoCarrito}
