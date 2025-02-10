@@ -1,0 +1,6 @@
+extends ./layouts/plantilla
+block contenido
+    main.container.margin-top
+        if(gameList)
+            each game in gameList   
+                include ./layouts/cart_item

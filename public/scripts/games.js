@@ -33,7 +33,7 @@ const initializeFilters = async () => {
         const systems = filtersPromises[0];
         const platforms = filtersPromises[1];
         const genres = filtersPromises[2];
-        console.log(genres);
+
         if (systems) {
             fillSelect(systemsSelect, systems);
         }
@@ -128,3 +128,4 @@ const replaceGameTemplate = (game) => {
     newBlock.innerHTML = newHtml;
     return newBlock.firstChild;
 }
+

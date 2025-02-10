@@ -9,7 +9,7 @@ block contenido
         select#genres-select
             option(value='' disabled='' selected='') Generos
     .container
-        section.top-games
+        section.margin-top
             h2 Todos Los Juegos
             .games-list#all-games
                 if(allGames)
@@ -23,3 +23,4 @@ block contenido
                         h3 {{name}}
                         div
                             p {{price}} &euro;
+    script(type="module", src='scripts/games.js')

@@ -10,7 +10,7 @@ block contenido
             | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem nulla ad, excepturi sapiente dolor quam perspiciatis quibusdam voluptate hic sint id, necessitatibus sequi nostrum quidem sed ipsa deserunt animi?
             p
             | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, dolorem nulla ad, excepturi sapiente dolor quam perspiciatis quibusdam voluptate hic sint id, necessitatibus sequi nostrum quidem sed ipsa deserunt animi?
-            button Add to cart
+            button(onclick=`addGameToCart(${game.id})`) Add to cart
     .about-game
         h4.about-game_start Sobre este juego
         #bg-img(style=`background-image:url("../img/${game.bgImage}");`)

@@ -18,7 +18,11 @@ html {
     font-weight: 400;
     font-style: normal;
 }
-
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 footer{
     background-color: #262833;
 }
@@ -44,11 +48,24 @@ select option{
 h1{
     color: #f7e9e9;
     padding-bottom: 25px;
-    font-size: 2.5rem;
+
 }
 h1 span{
     color: var(--principal);
 }
+
+header a{
+    margin-right: 15px;
+    text-decoration: none;
+}
+header a:hover{
+    color: var(--principal);
+}
+header span:hover,
+header h1:hover{
+    cursor: pointer;
+}
+
 
 .container{
     max-width: 120rem;
@@ -72,6 +89,32 @@ h1 span{
     text-decoration: none;
 }
 
+
+.searchbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+.searchbar input{
+    padding: 0;
+   flex-basis: 250px;
+   height: 30px;
+    border: #1B1C24 0.1px ;
+    border-radius: 5px;
+   background: rgb(2,0,36);
+   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(125,110,193,1) 0%, rgba(127,110,236,1) 100%, rgba(206,197,246,1) 100%);
+}
+.searchbar input:focus{
+   outline: none;
+}
+.searchbar input::placeholder{
+    color: rgba(238, 238, 238, 0.514);
+}
+
+
+
+
 .filtros{
     padding: 50px 0;
     display: flex;
@@ -88,9 +131,11 @@ h1 span{
 
 .filtros select:hover{
     cursor: pointer;
-    border-color: #3f1cd6;
-    border-width: 2.3px;
+
+    outline: none;
 }
+
+
 
 /*** Body ***/
 body{
@@ -182,7 +227,7 @@ button:hover{
 
 .about-game #bg-img{
     margin-top: 10px;
-
+    background-image:url("../img/bg-dying-light.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -206,9 +251,6 @@ button:hover{
 
 /*** Trending ***/
 
-.top-games,.trending{
-    padding-top: 5rem;
-}
 
 .trending{
     padding-top: 5rem;
@@ -231,3 +273,23 @@ button:hover{
     width: 30rem;
 }
 
+
+
+/*** CARRITO ***/
+
+.cart-game{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #2e2e36;
+    border-radius: 3px;
+    border-bottom: 0.1px rgb(245, 238, 238) solid;
+    
+}
+
+
+/***UTILIDADES*/
+
+.margin-top{
+    margin-top: 5rem;
+}

@@ -20,7 +20,7 @@ const paginaInicio = async (req,res) => {
 const paginaJuego = async (req,res) => {
     const {game_id} = req.query;
     const game = await Game.findOne({where : {id:game_id}})
-    console.log(game.dataValues);
+
     
     res.render('game',{
         game
