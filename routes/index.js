@@ -9,7 +9,7 @@ todosLosGeneros,
 sistemas,
 juegosFiltrados } from '../controllers/gameController.js';
 
-import { verCarrito, añadirJuegoCarrito, eliminarJuegoCarrito } from '../controllers/cartController.js';
+import { verCarrito, añadirJuegoCarrito, eliminarJuegoCarrito,countItemsInCart } from '../controllers/cartController.js';
 
 const router = express.Router();
 
@@ -27,6 +27,7 @@ router.get("/paginaJuego",paginaJuego)
 router.get("/carrito",verCarrito)
 router.post("/anadirJuegoCarrito",añadirJuegoCarrito)
 router.delete("/eliminarJuegoCarrito/:id",eliminarJuegoCarrito)
+router.get("/countItemsInCart",countItemsInCart)
 
 
 export default router;

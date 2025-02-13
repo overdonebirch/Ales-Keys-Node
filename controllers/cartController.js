@@ -1,6 +1,8 @@
 import { Cart } from "../models/Cart.js"
 import { Game } from "../models/Game.js"
-import { where } from "sequelize";
+import { Sequelize, where } from "sequelize";
+import { db } from "../config/db.js";
+
 const verCarrito = async (req,res) => {
     const cartItems = await Cart.findAll();
 
@@ -25,7 +27,7 @@ const añadirJuegoCarrito = async (req,res) => {
     const idGameToInsert = req.body.id;
     const game = await Game.findByPk(idGameToInsert)
     const cartItem = await Cart.create({idGame : idGameToInsert})
-
+    return res.json({ message: "Juego agregado al carrito" });
 }
 
 const eliminarJuegoCarrito = async (req,res) => {
@@ -44,7 +46,19 @@ const eliminarJuegoCarrito = async (req,res) => {
     }
 }
 
+const countItemsInCart = async (req,res) => {
+    try{
+        const resultado = await db.query("CALL count_items_in_cart()",{
+            type: Sequelize.QueryTypes.RAW
+        })
+        const {cartCount} = resultado[0];
+        console.log(req.session);
+        return res.json({cartCount})
+    }
+    catch(error){
+        console.log(error)
+    }
+}
 
 
-
-export {verCarrito,añadirJuegoCarrito,eliminarJuegoCarrito}
+export {verCarrito,añadirJuegoCarrito,eliminarJuegoCarrito,countItemsInCart}
